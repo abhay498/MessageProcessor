@@ -123,6 +123,20 @@ Backend processed: HELLO ABHAY
 └──────────────────────────┘
 
 ```
+# Features
 
+- React frontend
+- ASP.NET Core Web API
+- REST API
+- HTTP POST endpoint
+- Clean Architecture
+- Dependency Injection
+- Service Layer
+- Domain Entity
+- Swagger/OpenAPI
+- CORS configuration
+- Postman support
+- Git/GitHub integration
+- Separate frontend and backend folders
 
 
