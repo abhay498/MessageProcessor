@@ -81,6 +81,7 @@ Backend processed: HELLO ABHAY
 
 # Application Flow
 
+```text
 ┌──────────────────────────┐
 │      React Frontend      │
 │                          │
@@ -118,7 +119,10 @@ Backend processed: HELLO ABHAY
 ┌──────────────────────────┐
 │      React Frontend      │
 │                          │
-│ Display result            │
+│ Display result           │
 └──────────────────────────┘
+
+```
+
 
 
