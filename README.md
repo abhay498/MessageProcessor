@@ -77,3 +77,6 @@ React Frontend
         ↓
 
 Backend processed: HELLO ABHAY
+
+# Application Flow
+
