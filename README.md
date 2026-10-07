@@ -77,6 +77,48 @@ React Frontend
         ↓
 
 Backend processed: HELLO ABHAY
+```
 
 # Application Flow
+
+┌──────────────────────────┐
+│      React Frontend      │
+│                          │
+│  Enter message           │
+│  Click Process           │
+└────────────┬─────────────┘
+             │
+             │ HTTP POST
+             ▼
+┌──────────────────────────┐
+│    ASP.NET Core API      │
+│                          │
+│  MessageController       │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│     Application Layer    │
+│                          │
+│  IMessageService         │
+│  MessageService          │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│       Domain Layer       │
+│                          │
+│     MessageResult        │
+└────────────┬─────────────┘
+             │
+             ▼
+        JSON Response
+             │
+             ▼
+┌──────────────────────────┐
+│      React Frontend      │
+│                          │
+│ Display result            │
+└──────────────────────────┘
+
 
