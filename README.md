@@ -139,4 +139,33 @@ Backend processed: HELLO ABHAY
 - Git/GitHub integration
 - Separate frontend and backend folders
 
+# Technology Stack
 
+Frontend
+- React
+- JavaScript
+- Vite
+- npm
+- ESLint
+- CSS
+  
+Backend
+- C#
+- ASP.NET Core
+- .NET 10
+- ASP.NET Core Web API
+- Swagger / Swashbuckle
+- OpenAPI
+  
+Architecture
+- Clean Architecture
+- Dependency Injection
+- Service Layer
+- Interface-based programming
+
+Development Tools
+- Visual Studio 2026
+- Visual Studio Terminal
+- Postman
+- Git
+- GitHub
