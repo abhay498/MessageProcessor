@@ -169,3 +169,225 @@ Development Tools
 - Postman
 - Git
 - GitHub
+
+# Project Structure
+
+```text
+MessageProcessor/
+│
+├── Backend/
+│   │
+│   ├── MessageProcessor.API/
+│   │   ├── Controllers/
+│   │   │   └── MessageController.cs
+│   │   ├── Program.cs
+│   │   ├── MessageProcessor.API.csproj
+│   │   └── MessageProcessor.API.slnx
+│   │
+│   ├── MessageProcessor.Application/
+│   │   ├── Interfaces/
+│   │   │   └── IMessageService.cs
+│   │   ├── Services/
+│   │   │   └── MessageService.cs
+│   │   └── MessageProcessor.Application.csproj
+│   │
+│   ├── MessageProcessor.Domain/
+│   │   ├── Entities/
+│   │   │   └── MessageResult.cs
+│   │   └── MessageProcessor.Domain.csproj
+│   │
+│   └── MessageProcessor.Infrastructure/
+│       ├── DependencyInjection.cs
+│       └── MessageProcessor.Infrastructure.csproj
+│
+├── Frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── main.jsx
+│   │   └── ...
+│   ├── public/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.js
+│   └── ...
+│
+└── README.md
+```
+
+# Clean Architecture
+
+The backend follows a Clean Architecture style.
+
+The main layers are:
+
+```text
+API
+ ↓
+Application
+ ↓
+Domain
+```
+
+Infrastructure provides implementation and dependency registration for external concerns.
+
+1. API Layer
+Project:
+
+MessageProcessor.API
+
+Responsibilities:
+- HTTP requests
+- HTTP responses
+- Controllers
+- Routing
+- Swagger
+- CORS
+- Application startup
+
+Main controller:
+
+Controllers/MessageController.cs
+
+The controller should not contain business logic.
+
+2. Application Layer
+Project:
+
+MessageProcessor.Application
+
+Responsibilities:
+- Application/business operations
+- Interfaces
+- Services
+- Use-case logic
+
+Contains:
+Interfaces/
+    IMessageService.cs
+
+Services/
+    MessageService.cs
+
+3. Domain Layer
+Project:
+
+MessageProcessor.Domain
+
+The Domain layer contains the core business objects.
+
+Current entity:
+
+Entities/MessageResult.cs
+
+The Domain layer should remain independent of frameworks and infrastructure.
+
+4. Infrastructure Layer
+Project:
+
+MessageProcessor.Infrastructure
+
+Currently this project contains dependency registration.
+
+File:
+
+DependencyInjection.cs
+
+This layer can later contain things such as:
+- Database access
+- Entity Framework Core
+- Repositories
+- External APIs
+- File storage
+- Email services
+- Other infrastructure implementations
+
+# Dependency Injection
+
+Dependency Injection is used to provide the IMessageService implementation to the controller.
+The service is registered in:
+
+MessageProcessor.Infrastructure
+
+using:
+
+services.AddScoped<IMessageService, MessageService>();
+
+This means:
+
+IMessageService
+       ↓
+MessageService
+
+The controller receives the interface through constructor injection:
+
+public MessageController(IMessageService messageService)
+{
+    _messageService = messageService;
+}
+
+The controller does not create the service itself.
+ASP.NET Core's Dependency Injection container creates and provides the required implementation.
+
+# Backend
+
+The backend is an ASP.NET Core Web API.
+Backend solution:
+
+Backend/MessageProcessor.API/MessageProcessor.API.slnx
+
+The API uses .NET 10.
+
+API Endpoint
+
+The application exposes the following endpoint:
+
+POST /api/Message/process
+
+When running locally:
+https://localhost:7091/api/Message/process
+
+Request
+Request body:
+
+{
+  "message": "hello abhay"
+}
+
+Response
+
+{
+  "result": "Backend processed: HELLO ABHAY"
+}
+
+Swagger
+
+Swagger is configured using:
+
+Swashbuckle.AspNetCore
+
+When the backend is running, open:
+
+https://localhost:7091/swagger
+
+Swagger provides an interactive interface for testing the API.
+
+The endpoint appears as:
+POST /api/Message/process
+
+You can select:
+Try it out
+
+and execute the request directly from Swagger.
+
+Prerequisites
+Install the following before running the project.
+Backend
+- .NET 10 SDK
+- Visual Studio 2026
+Verify .NET:
+dotnet --version
+
+Example:
+
+10.0.302
