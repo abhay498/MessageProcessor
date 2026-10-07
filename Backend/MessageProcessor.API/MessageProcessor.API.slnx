@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../MessageProcessor.Application/MessageProcessor.Application.csproj" />
+  <Project Path="../MessageProcessor.Domain/MessageProcessor.Domain.csproj" />
+  <Project Path="../MessageProcessor.Infrastructure/MessageProcessor.Infrastructure.csproj" />
+  <Project Path="MessageProcessor.API.csproj" />
+</Solution>
