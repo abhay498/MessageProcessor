@@ -535,3 +535,32 @@ Development HTTPS certificate
 If Postman reports an SSL certificate verification error while using the local development certificate, SSL
 certificate verification can be disabled in Postman for local development.
 Do not disable SSL certificate verification for production environments.
+
+# Testing the API with Swagger
+
+Start the backend.
+Open:
+https://localhost:7091/swagger
+
+Find:
+POST /api/Message/process
+
+Click:
+Try it out
+
+Use:
+{
+  "message": "hello abhay"
+}
+
+Click:
+Execute
+
+Expected:
+200 OK
+
+Response:
+
+{
+  "result": "Backend processed: HELLO ABHAY"
+}
