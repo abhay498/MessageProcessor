@@ -564,3 +564,62 @@ Response:
 {
   "result": "Backend processed: HELLO ABHAY"
 }
+
+# How React Communicates with the Backend
+
+The React application calls the ASP.NET Core endpoint using JavaScript fetch.
+The request is made from:
+
+Frontend/src/App.jsx
+
+Example:
+
+const response = await fetch(
+    "https://localhost:7091/api/message/process",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message: message
+        })
+    }
+);
+
+The backend receives:
+
+{
+  "message": "hello abhay"
+}
+
+The backend processes the message and returns:
+
+{
+  "result": "Backend processed: HELLO ABHAY"
+}
+
+React then displays the result.
+
+CORS
+The backend allows requests from the React development server:
+
+http://localhost:5173
+
+The CORS policy is configured in:
+Backend/MessageProcessor.API/Program.cs
+
+Example:
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactPolicy", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
+This allows the React development server to communicate with the ASP.NET Core API.
