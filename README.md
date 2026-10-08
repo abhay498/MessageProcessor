@@ -408,3 +408,44 @@ For API testing:
 - Postman
 For source control:
 - Git
+
+# Running the Backend
+
+There are several ways to run the backend.
+Option 1 - Visual Studio
+Open:
+
+Backend/MessageProcessor.API/MessageProcessor.API.slnx
+
+in Visual Studio 2026.
+Set:
+
+MessageProcessor.API
+
+as the startup project.
+Run:
+
+Ctrl + F5
+
+or:
+
+F5
+
+The API will start.
+Example:
+
+https://localhost:7091
+
+and:
+
+http://localhost:5010
+
+Option 2 - Command Line
+Navigate to:
+
+cd Backend/MessageProcessor.API
+
+Run:
+dotnet run
+
+The console will display the URLs where the API is listening.
