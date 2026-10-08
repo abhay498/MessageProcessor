@@ -623,3 +623,95 @@ builder.Services.AddCors(options =>
 });
 
 This allows the React development server to communicate with the ASP.NET Core API.
+
+# Project Dependencies
+The project references follow the Clean Architecture design.
+
+MessageProcessor.API
+    ↓
+MessageProcessor.Application
+
+MessageProcessor.API
+    ↓
+MessageProcessor.Infrastructure
+
+MessageProcessor.Application
+    ↓
+MessageProcessor.Domain
+
+MessageProcessor.Infrastructure
+    ↓
+MessageProcessor.Application
+
+MessageProcessor.Infrastructure
+    ↓
+MessageProcessor.Domain
+
+The Domain layer remains independent of the other application layers.
+
+Request Processing Flow
+When the user clicks Process:
+
+1. User enters a message
+       ↓
+2. User clicks Process
+       ↓
+3. React sends HTTP POST
+       ↓
+4. MessageController receives request
+       ↓
+5. IMessageService is injected by ASP.NET Core
+       ↓
+6. MessageService processes the message
+       ↓
+7. MessageResult is created
+       ↓
+8. Controller returns HTTP 200
+       ↓
+9. React receives JSON
+       ↓
+10. React displays the result
+
+Why Clean Architecture?
+Clean Architecture helps separate responsibilities.
+For example:
+
+Controller
+    ↓
+Handles HTTP
+
+Application Service
+    ↓
+Handles application/business logic
+
+Domain
+    ↓
+Contains core business objects
+
+Infrastructure
+    ↓
+Handles technical/external concerns
+
+This makes the application easier to:
+- Maintain
+- Test
+- Extend
+- Refactor
+- Scale
+
+Why Dependency Injection?
+Dependency Injection avoids tightly coupling the controller to a concrete implementation.
+Instead of:
+
+var service = new MessageService();
+
+the controller depends on:
+
+IMessageService
+
+and ASP.NET Core provides:
+
+MessageService
+
+through its DI container.
+This makes it easier to replace implementations and write unit tests.
