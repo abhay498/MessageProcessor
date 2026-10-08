@@ -466,3 +466,38 @@ Local: http://localhost:5173/
 
 Open:
 http://localhost:5173
+
+# Running the Complete Application
+
+Two processes need to run.
+
+Terminal 1 - Backend
+
+cd C:\Users\Abhay\source\repos\MessageProcessor\Backend\MessageProcessor.API
+dotnet run
+
+Example backend:
+
+https://localhost:7091
+
+Terminal 2 - Frontend
+
+cd C:\Users\Abhay\source\repos\MessageProcessor\Frontend
+npm install
+npm run dev
+
+Frontend:
+http://localhost:5173
+
+Open the application
+Go to:
+http://localhost:5173
+
+Enter:
+hello abhay
+
+Click:
+Process
+
+Expected result:
+Backend processed: HELLO ABHAY
