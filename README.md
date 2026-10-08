@@ -715,3 +715,69 @@ MessageService
 
 through its DI container.
 This makes it easier to replace implementations and write unit tests.
+
+# Git and GitHub
+
+The project is maintained using Git.
+Initialize Git:
+git init
+
+Check status:
+git status
+
+Stage files:
+git add .
+
+Commit:
+git commit -m "Initial commit for MessageProcessor"
+
+Add the GitHub remote:
+git remote add origin https://github.com/abhay498/MessageProcessor.git
+
+Push:
+git push -u origin master
+
+.gitignore
+The project excludes files that should not be committed, including:
+
+bin/
+obj/
+.vs/
+node_modules/
+dist/
+.env
+
+This keeps generated files and local environment files out of the Git repository.
+
+Current Architecture
+The current backend architecture can be summarized as:
+
+```text
+                 React
+                   │
+                   │ HTTP POST
+                   ▼
+        ┌─────────────────────┐
+        │ MessageProcessor.API│
+        │    Controller       │
+        └──────────┬──────────┘
+                   │
+                   ▼
+        ┌─────────────────────┐
+        │    Application      │
+        │                     │
+        │ IMessageService     │
+        │ MessageService      │
+        └──────────┬──────────┘
+                   │
+                   ▼
+        ┌─────────────────────┐
+        │       Domain        │
+        │                     │
+        │   MessageResult     │
+        └─────────────────────┘
+
+        Infrastructure
+               │
+               └── Dependency Injection
+```
