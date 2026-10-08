@@ -391,3 +391,20 @@ dotnet --version
 Example:
 
 10.0.302
+
+# Frontend
+
+Install:
+- Node.js
+- npm
+Verify:
+node --version
+
+and:
+npm --version
+
+Optional Tools
+For API testing:
+- Postman
+For source control:
+- Git
