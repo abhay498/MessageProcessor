@@ -501,3 +501,37 @@ Process
 
 Expected result:
 Backend processed: HELLO ABHAY
+
+# Testing the API with Postman
+
+Create a new HTTP request.
+Method:
+POST
+
+URL:
+https://localhost:7091/api/Message/process
+
+Select:
+Body
+→ raw
+→ JSON
+
+Request:
+
+{
+  "message": "hello abhay"
+}
+
+Click:
+Send
+
+Expected response:
+
+{
+  "result": "Backend processed: HELLO ABHAY"
+}
+
+Development HTTPS certificate
+If Postman reports an SSL certificate verification error while using the local development certificate, SSL
+certificate verification can be disabled in Postman for local development.
+Do not disable SSL certificate verification for production environments.
