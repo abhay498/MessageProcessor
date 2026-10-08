@@ -449,3 +449,20 @@ Run:
 dotnet run
 
 The console will display the URLs where the API is listening.
+
+# Running the Frontend
+Open a separate terminal.
+Navigate to:
+cd Frontend
+
+Install dependencies:
+npm install
+
+Start the development server:
+npm run dev
+
+Vite will display something similar to:
+Local: http://localhost:5173/
+
+Open:
+http://localhost:5173
