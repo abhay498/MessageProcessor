@@ -781,3 +781,32 @@ The current backend architecture can be summarized as:
                │
                └── Dependency Injection
 ```
+
+# Future Improvements
+
+Possible future enhancements include:
+
+- PostgreSQL database
+- Entity Framework Core
+- Repository pattern
+- Unit tests
+- Integration tests
+- DTOs
+- Global exception handling
+- Structured logging
+- Authentication and authorization
+- JWT authentication
+- Request validation
+- API versioning
+- Pagination
+- Docker
+- Docker Compose
+- CI/CD
+- GitHub Actions
+- Production configuration
+- Environment-specific configuration
+- Deployment to Azure/AWS/GCP
+- React routing
+- Better UI/UX
+- Loading and error states
+- Frontend API service layer
