@@ -8,7 +8,7 @@ function App() {
     const processMessage = async () => {
         try {
             const response = await fetch(
-                "https://localhost:7091/api/message/process",
+                "http://localhost:5010/api/message/process",
                 {
                     method: "POST",
                     headers: {
